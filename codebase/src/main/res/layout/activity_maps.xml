@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Original top section container -->
+    <LinearLayout
+        android:id="@+id/topSectionContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <!-- Existing TextView and EditText elements -->
+        <TextView
+            android:id="@+id/FromTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Current Address"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/currentAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Place Holder"
+            android:layout_marginTop="5dp" />
+
+        <EditText
+            android:id="@+id/addressInput"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter address"
+            android:inputType="text" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical">
+
+            <CheckBox
+                android:id="@+id/evChargerCheckbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Locate EV charger on route" />
+
+            <ImageView
+                android:id="@+id/settingsIcon"
+                android:layout_width="48px"
+                android:layout_height="48px"
+                android:src="@drawable/cog"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topSectionContainer">
+
+        <!-- Map Fragment -->
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MapsActivity" />
+
+        <!-- Pill-like indicators -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/distanceIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pill_shape"
+                android:text="Miles: --"
+                android:textColor="#fff"
+                android:padding="10dp"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:id="@+id/timeIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pill_shape"
+                android:text="Time: --"
+                android:textColor="#fff"
+                android:padding="10dp"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:id="@+id/chargeIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pill_shape"
+                android:text="Charge: --"
+                android:textColor="#fff"
+                android:padding="10dp"
+                android:layout_margin="5dp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Start Trip Button -->
+    <Button
+        android:id="@+id/startTrip"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_button"
+        android:text="@string/start_trip"
+        android:textColor="@xml/button_color" />
+</RelativeLayout>
